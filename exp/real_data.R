@@ -32,7 +32,7 @@ b_chiara <- data.frame("lose" = extract(m_chiara)$b1,
                        "win"  = extract(m_chiara)$b2,
                        "draw" = extract(m_chiara)$b3)
 
-# Boxplots
+## Boxplots
 pdf("../doc/fig/mona_chiara.pdf", height=5.5, width=8, pointsize=12)
 
 par(mfrow = c(2, 2), mai = c(.4, .7, .1, .1), mgp = c(3, .7, 0))
@@ -60,3 +60,35 @@ axis(2, 1:3, expression(b[lose], b[win], b[draw]), las = 1)
 abline(v = 1/2, lty = 3)
 
 dev.off()
+
+
+# Densities
+make_densities <- function(samples, x_value) {
+  pdf(paste("../doc/fig/", deparse(substitute(samples)), ".pdf", sep = ""), 
+      height=5.5, width=8, pointsize=12)
+  par(mfrow = c(1, 3), mai = c(.6, .6, .1, .1), mgp = c(2, .7, 0))
+
+  densities <- c()
+  bayes_factors <- c()
+  
+  for(i in 1:3) {
+    density_out <- samples[ ,i] |> density()
+    densities[i] <- approx(density_out$x, density_out$y, xout = x_value)$y
+    bayes_factors[i] <- 1 / densities[i]
+  
+    plot(density_out, xlim = 0:1, ylim = c(0, 11), 
+	 xlab = ifelse(x_value == 1/3, "p(stay)", "p(beat)"), main = "",
+         col = "#add8e6", lwd = 3)
+    text(x = .8, y = 9.2, paste("BF[10] =", round(bayes_factors[i], 2)))
+    text(x = .8, y = 8.8, paste("BF[01] =", round(densities[i], 2)))
+    curve(dbeta(x, 1, 1), 0, 1, lty = 2, add = TRUE)
+    abline(v = x_value, lty = 3)
+  }
+  
+  dev.off()
+}
+
+make_densities(c_mona, 1/3)
+make_densities(b_mona, 1/2)
+make_densities(c_chiara, 1/3)
+make_densities(b_chiara, 1/2)
