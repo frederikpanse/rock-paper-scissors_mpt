@@ -1,7 +1,0 @@
-data_chiara_m2.csv filter=lfs diff=lfs merge=lfs -text
-data_mona_m1.csv filter=lfs diff=lfs merge=lfs -text
-data_mona_m2.csv filter=lfs diff=lfs merge=lfs -text
-real_data.csv filter=lfs diff=lfs merge=lfs -text
-simulated_data_g_1000.csv filter=lfs diff=lfs merge=lfs -text
-simulated_data_p_1000.csv filter=lfs diff=lfs merge=lfs -text
-data_chiara_m1.csv filter=lfs diff=lfs merge=lfs -text
