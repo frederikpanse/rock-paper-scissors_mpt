@@ -1,1 +1,1 @@
-# Understanding your Opponent's Rock-Paper-Scissors Strategy!
+# Get insight in your Opponent's Rock-Paper-Scissors Strategy
