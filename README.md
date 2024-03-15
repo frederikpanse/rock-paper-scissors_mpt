@@ -1,1 +1,1 @@
-# rock-paper-scissors_mpt
+# Understanding your Opponent's Rock-Paper_Scissors Strategy!
