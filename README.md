@@ -4,3 +4,4 @@
 
 Our multinomial processing tree (MPT) model produces Bayesian estimates for relevant cognitive processes during the rock-paper-scissors game. This group project was developed in the 2024 Quantitative Thinking seminar in Balatonföldvár.
 
+[Some title here](doc/fig/simulated_g.pdf)
