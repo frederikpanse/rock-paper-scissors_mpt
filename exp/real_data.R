@@ -65,8 +65,8 @@ dev.off()
 # Densities
 make_densities <- function(samples, x_value) {
   pdf(paste("../doc/fig/", deparse(substitute(samples)), ".pdf", sep = ""), 
-      height=5.5, width=8, pointsize=12)
-  par(mfrow = c(1, 3), mai = c(.6, .6, .1, .1), mgp = c(2, .7, 0))
+      height=3, width=8, pointsize=12)
+  par(mfrow = c(1, 3), mai = c(.5, .5, .3, .1), mgp = c(2, .7, 0))
 
   densities <- c()
   bayes_factors <- c()
@@ -76,11 +76,12 @@ make_densities <- function(samples, x_value) {
     densities[i] <- approx(density_out$x, density_out$y, xout = x_value)$y
     bayes_factors[i] <- 1 / densities[i]
   
-    plot(density_out, xlim = 0:1, ylim = c(0, 11), 
-	 xlab = ifelse(x_value == 1/3, "p(stay)", "p(beat)"), main = "",
+    plot(density_out, xlim = 0:1, ylim = c(0, 11.5), 
+	 xlab = ifelse(x_value == 1/3, "s = p(stay)", "b = p(beat)"), 
+	 main = ifelse(i == 1, "lose", ifelse(i == 2, "win", "draw")),
          col = "#add8e6", lwd = 3)
-    text(x = .8, y = 9.2, paste("BF[10] =", round(bayes_factors[i], 2)))
-    text(x = .8, y = 8.8, paste("BF[01] =", round(densities[i], 2)))
+    text(x = .8, y = 10, paste("BF[10] =", round(bayes_factors[i], 2)))
+    text(x = .8, y = 9, paste("BF[01] =", round(densities[i], 2)))
     curve(dbeta(x, 1, 1), 0, 1, lty = 2, add = TRUE)
     abline(v = x_value, lty = 3)
   }
