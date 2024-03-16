@@ -30,9 +30,15 @@ Player_B:
 
 <img width="1360" alt="s_Player_B_g" src="https://github.com/frederikpanse/rock-paper-scissors_mpt/assets/81534893/ef0aeb25-d225-4480-8c2e-89627bc3e50e">
 
-<img width="1360" alt="b_Player_B_g" src="https://github.com/frederikpanse/rock-paper-scissors_mpt/assets/81534893/7bbf888c-f8a7-4f1f-b52b-9b90f855a963">
+<img width="1359" alt="b_Player_B_g" src="https://github.com/frederikpanse/rock-paper-scissors_mpt/assets/81534893/4c2636dc-22e6-4f98-8e0f-1191c5d545a2">
 
 
 ## What else you can find in this repo
 
-[doc](/doc)
+In the [doc](/doc) directory you will find the slides for the presentation at the seminar and in [doc/fig](/doc/fig) you will find a bunch of figures.
+
+The stan code for our model is in [src](/src).
+
+If you want to replicate our data analysis, you will find our code in [exp](/exp).
+
+And in [dat](/dat) we stored the provided datasets.
